@@ -1,0 +1,1210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shivraj Homes – Premium Accommodations</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <header class="navbar">
+    <div class="navbar__container">
+
+      <!-- Logo -->
+      <a href="#" class="navbar__logo">
+        <img src="Shivraj PG logo.png" alt="Shivraj Homes Logo" />
+      </a>
+
+      <!-- Hamburger (mobile) -->
+      <button class="navbar__hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <!-- Nav links -->
+      <nav class="navbar__nav" id="navMenu">
+        <ul class="navbar__list">
+
+          <li class="navbar__item">
+            <a href="#" class="navbar__link active">Home</a>
+          </li>
+
+          <li class="navbar__item">
+            <a href="#" class="navbar__link">About Us</a>
+          </li>
+
+          <!-- Location Dropdown -->
+          <li class="navbar__item navbar__dropdown">
+            <button class="navbar__link navbar__dropdown-toggle" aria-expanded="false">
+              Location
+              <svg class="navbar__chevron" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </button>
+            <ul class="navbar__dropdown-menu">
+              <li><a href="#" class="navbar__dropdown-item">
+                <span class="dropdown-icon">📍</span> Sector 22
+              </a></li>
+              <li><a href="#" class="navbar__dropdown-item">
+                <span class="dropdown-icon">📍</span> Sector 22A
+              </a></li>
+              <li><a href="#" class="navbar__dropdown-item">
+                <span class="dropdown-icon">📍</span> Sector 23
+              </a></li>
+              <li><a href="#" class="navbar__dropdown-item">
+                <span class="dropdown-icon">📍</span> 
+              </a></li>
+            </ul>
+          </li>
+
+          <!-- Contact CTA -->
+          <li class="navbar__item">
+            <a href="#" class="navbar__cta">Contact Us</a>
+          </li>
+
+        </ul>
+      </nav>
+    </div>
+  </header>
+<!-- ===== HERO SECTION ===== -->
+<section class="hero">
+
+  <!-- Background Image -->
+  <div class="hero__bg">
+  <div class="hero__slideshow" id="heroSlideshow">
+    <div class="hero__slide active" style="background-image: url('1774162250089.png')"></div>
+    <div class="hero__slide" style="background-image: url('1774162263990.png')"></div>
+    <div class="hero__slide" style="background-image: url('1774162307006.png')"></div>
+    <div class="hero__slide" style="background-image: url('1774162320908.png')"></div>
+  </div>
+  <div class="hero__overlay"></div>
+</div>
+
+  <!-- Hero Content -->
+  <div class="hero__content">
+
+    <div class="hero__badge">
+      <span class="hero__badge-dot"></span>
+      Premium PG &amp; Co-Living in Gurgaon
+    </div>
+
+    <h1 class="hero__title">
+      Where Comfort Meets <br />
+      <span class="hero__title-accent">Convenience</span>
+    </h1>
+
+    <p class="hero__subtitle">
+      Fully furnished rooms, modern amenities &amp; zero hassle —<br class="hero__br" />
+      designed for students and working professionals.
+    </p>
+
+    <div class="hero__actions">
+      <a href="#" class="hero__btn hero__btn--primary">
+        Explore Rooms
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="5" y1="12" x2="19" y2="12"/>
+          <polyline points="12 5 19 12 12 19"/>
+        </svg>
+      </a>
+      <a href="#" class="hero__btn hero__btn--secondary">Book a Visit</a>
+    </div>
+
+    <!-- Search Bar -->
+    <!-- <div class="hero__search">
+      <div class="hero__search-inner">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C4622D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="11" cy="11" r="8"/>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+        </svg>
+        <input type="text" placeholder="Search by location, sector or type..." />
+        <button class="hero__search-btn">Search</button>
+      </div>
+    </div> -->
+
+  </div>
+
+  <!-- Floating Stats Bar -->
+  <div class="hero__stats">
+    <div class="hero__stat">
+      <span class="hero__stat-number">650+</span>
+      <span class="hero__stat-label">Furnished Rooms</span>
+    </div>
+    <div class="hero__stat-divider"></div>
+    <div class="hero__stat">
+      <span class="hero__stat-number">1000+</span>
+      <span class="hero__stat-label">Enjoying Homestay</span>
+    </div>
+    <div class="hero__stat-divider"></div>
+    <div class="hero__stat">
+      <span class="hero__stat-number">7+</span>
+      <span class="hero__stat-label">Properties</span>
+    </div>
+    <div class="hero__stat-divider"></div>
+    <div class="hero__stat">
+      <span class="hero__stat-number">4+</span>
+      <span class="hero__stat-label">Prime Locations</span>
+    </div>
+  </div>
+
+  <!-- Scroll Indicator -->
+  <div class="hero__scroll">
+    <span>Scroll to explore</span>
+    <div class="hero__scroll-line"></div>
+  </div>
+
+</section>
+<!-- ===== ROOM TYPES SECTION ===== -->
+<section class="rooms">
+
+  <div class="rooms__container">
+
+    <!-- Section Header -->
+    <div class="rooms__header">
+      <span class="rooms__tag">What We Offer</span>
+      <h2 class="rooms__title">Find Your <span class="rooms__title-accent">Perfect Space</span></h2>
+      <p class="rooms__subtitle">Choose from a variety of thoughtfully designed accommodations built for comfort, privacy, and community.</p>
+    </div>
+
+    <!-- Cards Grid -->
+    <div class="rooms__grid">
+
+      <!-- Card 1: 1RK -->
+      <div class="rooms__card" data-type="1rk">
+        <div class="rooms__card-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+            <polyline points="9 22 9 12 15 12 15 22"/>
+          </svg>
+        </div>
+        <div class="rooms__card-badge">Most Popular</div>
+        <h3 class="rooms__card-title">1RK Studio</h3>
+        <p class="rooms__card-desc">Your own private kitchen, living, and sleeping space — total independence in the heart of the city.</p>
+        <ul class="rooms__card-features">
+          <li>
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            Private Kitchen & Bath
+          </li>
+          <li>
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            Fully Furnished
+          </li>
+          <li>
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            High-Speed Wi-Fi
+          </li>
+        </ul>
+        <div class="rooms__card-price">
+          <span class="rooms__card-from">Starts From</span>
+          <span class="rooms__card-amount">₹14,000<span>/mo</span></span>
+        </div>
+        <a href="#" class="rooms__card-btn">Explore 1RK
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+      </div>
+
+      <!-- Card 2: Co-Living Single -->
+      <div class="rooms__card rooms__card--featured" data-type="single">
+        <div class="rooms__card-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+            <line x1="3" y1="9" x2="21" y2="9"/>
+            <line x1="9" y1="21" x2="9" y2="9"/>
+          </svg>
+        </div>
+        <div class="rooms__card-badge rooms__card-badge--white">Best Value</div>
+        <h3 class="rooms__card-title">Co-Living Single</h3>
+        <p class="rooms__card-desc">Private room, shared common areas — enjoy your personal space while being part of a vibrant community.</p>
+        <ul class="rooms__card-features">
+          <li>
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            Private Room & Locker
+          </li>
+          <li>
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            Shared Kitchen & Lounge
+          </li>
+          <li>
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            Daily Housekeeping
+          </li>
+        </ul>
+        <div class="rooms__card-price">
+          <span class="rooms__card-from">Starts From</span>
+          <span class="rooms__card-amount">₹13,000<span>/mo</span></span>
+        </div>
+        <a href="#" class="rooms__card-btn rooms__card-btn--white">Explore Single
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+      </div>
+
+      <!-- Card 3: Double Sharing -->
+      <div class="rooms__card" data-type="double">
+        <div class="rooms__card-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+            <circle cx="9" cy="7" r="4"/>
+            <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+            <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+          </svg>
+        </div>
+        <h3 class="rooms__card-title">Double Sharing</h3>
+        <p class="rooms__card-desc">Split the cost, share the memories — a cozy twin-sharing room with a friend or a matched flatmate.</p>
+        <ul class="rooms__card-features">
+          <li>
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            Twin Beds & Storage
+          </li>
+          <li>
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            Shared Bathroom
+          </li>
+          <li>
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            24/7 Security
+          </li>
+        </ul>
+        <div class="rooms__card-price">
+          <span class="rooms__card-from">Starts From</span>
+          <span class="rooms__card-amount">₹9,000<span>/mo</span></span>
+        </div>
+        <a href="#" class="rooms__card-btn">Explore Double
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+      </div>
+
+    </div>
+  </div>
+</section>
+<!-- ===== AMENITIES SECTION ===== -->
+<section class="amenities" id="amenities">
+
+  <div class="amenities__container">
+
+    <!-- Section Header -->
+    <div class="amenities__header">
+      <span class="amenities__tag">Why You'll Love It Here</span>
+      <h2 class="amenities__title">Everything You Need, <span class="amenities__title-accent">All in One Place</span></h2>
+      <p class="amenities__subtitle">Premium amenities designed to make your stay effortless, comfortable, and enjoyable every single day.</p>
+    </div>
+
+    <!-- Amenities Grid -->
+    <div class="amenities__grid">
+
+      <div class="amenities__card">
+        <div class="amenities__icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/>
+            <path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><line x1="12" y1="20" x2="12.01" y2="20"/>
+          </svg>
+        </div>
+        <h4 class="amenities__card-title">High-Speed Wi-Fi</h4>
+        <p class="amenities__card-desc">Blazing fast internet 24/7 for work, study & streaming.</p>
+      </div>
+
+      <div class="amenities__card">
+        <div class="amenities__icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/>
+            <circle cx="12" cy="13" r="4"/>
+          </svg>
+        </div>
+        <h4 class="amenities__card-title">CCTV Surveillance</h4>
+        <p class="amenities__card-desc">Round-the-clock monitoring for your complete peace of mind.</p>
+      </div>
+
+      <div class="amenities__card">
+        <div class="amenities__icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2a10 10 0 1 0 0 20A10 10 0 0 0 12 2z"/>
+            <path d="M12 6v6l4 2"/>
+          </svg>
+        </div>
+        <h4 class="amenities__card-title">Water Purifier</h4>
+        <p class="amenities__card-desc">Clean, safe RO-purified drinking water available all day.</p>
+      </div>
+
+      <div class="amenities__card">
+        <div class="amenities__icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="7" width="20" height="15" rx="2" ry="2"/>
+            <polyline points="16 2 12 6 8 2"/>
+          </svg>
+        </div>
+        <h4 class="amenities__card-title">Common Fridge</h4>
+        <p class="amenities__card-desc">Shared refrigerator to keep your food fresh anytime.</p>
+      </div>
+
+      <div class="amenities__card">
+        <div class="amenities__icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+            <rect x="9" y="14" width="6" height="7"/>
+          </svg>
+        </div>
+        <h4 class="amenities__card-title">Common Balcony</h4>
+        <p class="amenities__card-desc">A breezy shared space to unwind, relax and recharge.</p>
+      </div>
+
+      <div class="amenities__card">
+        <div class="amenities__icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="1" y="3" width="15" height="13" rx="2"/>
+            <path d="M16 8h4l3 3v5h-7V8z"/>
+            <circle cx="5.5" cy="18.5" r="2.5"/>
+            <circle cx="18.5" cy="18.5" r="2.5"/>
+          </svg>
+        </div>
+        <h4 class="amenities__card-title">Parking</h4>
+        <p class="amenities__card-desc">Dedicated two-wheeler & four-wheeler parking on premise.</p>
+      </div>
+
+      <div class="amenities__card">
+        <div class="amenities__icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+          </svg>
+        </div>
+        <h4 class="amenities__card-title">Daily Housekeeping</h4>
+        <p class="amenities__card-desc">Fresh & tidy rooms every day without lifting a finger.</p>
+      </div>
+
+      <div class="amenities__card">
+        <div class="amenities__icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M8.56 2.9A7 7 0 0 1 19 9v4"/>
+            <path d="M3 13a7 7 0 0 0 13.44 2.9"/>
+            <line x1="1" y1="1" x2="23" y2="23"/>
+          </svg>
+        </div>
+        <h4 class="amenities__card-title">Shared Kitchen</h4>
+        <p class="amenities__card-desc">Well-equipped kitchen to cook your favourite home meals.</p>
+      </div>
+
+      <div class="amenities__card">
+        <div class="amenities__icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="5" y="2" width="14" height="20" rx="2" ry="2"/>
+            <line x1="12" y1="18" x2="12.01" y2="18"/>
+          </svg>
+        </div>
+        <h4 class="amenities__card-title">Lift</h4>
+        <p class="amenities__card-desc">Smooth elevator access on every floor, no stairs needed.</p>
+      </div>
+
+      <div class="amenities__card">
+        <div class="amenities__icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M14 14.76V3.5a2.5 2.5 0 0 0-5 0v11.26a4.5 4.5 0 1 0 5 0z"/>
+          </svg>
+        </div>
+        <h4 class="amenities__card-title">AC Rooms</h4>
+        <p class="amenities__card-desc">Beat the heat with fully air-conditioned, cool rooms.</p>
+      </div>
+
+      <div class="amenities__card">
+        <div class="amenities__icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+          </svg>
+        </div>
+        <h4 class="amenities__card-title">Power Backup</h4>
+        <p class="amenities__card-desc">Uninterrupted electricity with full generator backup 24/7.</p>
+      </div>
+
+      <div class="amenities__card">
+        <div class="amenities__icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+          </svg>
+        </div>
+        <h4 class="amenities__card-title">Laundry</h4>
+        <p class="amenities__card-desc">Washing machine access so your clothes stay clean effortlessly.</p>
+      </div>
+
+      <div class="amenities__card">
+        <div class="amenities__icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M18 8h1a4 4 0 0 1 0 8h-1"/>
+            <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/>
+            <line x1="6" y1="1" x2="6" y2="4"/>
+            <line x1="10" y1="1" x2="10" y2="4"/>
+            <line x1="14" y1="1" x2="14" y2="4"/>
+          </svg>
+        </div>
+        <h4 class="amenities__card-title">Tasty Food</h4>
+        <p class="amenities__card-desc">Delicious home-style meals served fresh morning & evening.</p>
+      </div>
+
+      <div class="amenities__card">
+        <div class="amenities__icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"/>
+            <path d="M8 14s1.5 2 4 2 4-2 4-2"/>
+            <line x1="9" y1="9" x2="9.01" y2="9"/>
+            <line x1="15" y1="9" x2="15.01" y2="9"/>
+          </svg>
+        </div>
+        <h4 class="amenities__card-title">Indoor Games</h4>
+        <p class="amenities__card-desc">Carom, chess, table tennis & more to keep your fun alive.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+<!-- ===== WHY CHOOSE US SECTION ===== -->
+<section class="why" id="why-choose-us">
+
+  <div class="why__container">
+
+    <!-- Section Header -->
+    <div class="why__header">
+      <span class="why__tag">Why Shivraj Homes</span>
+      <h2 class="why__title">More Than a Room — <span class="why__title-accent">A Better Life</span></h2>
+      <p class="why__subtitle">We don't just offer a place to stay. We offer a lifestyle crafted around your comfort, safety, and growth.</p>
+    </div>
+
+    <!-- Top Row — 3 Cards -->
+    <div class="why__row why__row--top">
+
+      <div class="why__card why__card--light">
+        <div class="why__card-number">01</div>
+        <div class="why__card-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+            <circle cx="12" cy="10" r="3"/>
+          </svg>
+        </div>
+        <h3 class="why__card-title">Prime Locations</h3>
+        <p class="why__card-desc">Strategically situated near metro stations, tech parks, colleges, and daily essentials — everything you need is within reach.</p>
+        <div class="why__card-tag">Well Connected</div>
+      </div>
+
+      <div class="why__card why__card--dark">
+        <div class="why__card-number">02</div>
+        <div class="why__card-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+          </svg>
+        </div>
+        <h3 class="why__card-title">Safety First</h3>
+        <p class="why__card-desc">Biometric entry, 24/7 CCTV surveillance, and gated premises ensure you always feel completely secure and protected.</p>
+        <div class="why__card-tag">Zero Compromise</div>
+      </div>
+
+      <div class="why__card why__card--orange">
+        <div class="why__card-number">03</div>
+        <div class="why__card-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="1" y="4" width="22" height="16" rx="2" ry="2"/>
+            <line x1="1" y1="10" x2="23" y2="10"/>
+          </svg>
+        </div>
+        <h3 class="why__card-title">Flexible & Affordable</h3>
+        <p class="why__card-desc">Transparent pricing with no hidden charges. Choose your plan, your duration — stay on your own terms without breaking the bank.</p>
+        <div class="why__card-tag">Your Budget, Your Choice</div>
+      </div>
+
+    </div>
+
+    <!-- Bottom Row — 2 Cards -->
+    <div class="why__row why__row--bottom">
+
+      <div class="why__card why__card--outline">
+        <div class="why__card-number">04</div>
+        <div class="why__card-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+            <circle cx="9" cy="7" r="4"/>
+            <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+            <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+          </svg>
+        </div>
+        <h3 class="why__card-title">Vibrant Community</h3>
+        <p class="why__card-desc">Live alongside like-minded students and professionals. Share experiences, build friendships, and grow together in a warm, welcoming environment that truly feels like home.</p>
+        <div class="why__card-tag">1000+ Happy Residents</div>
+        <div class="why__card-stats">
+          <div class="why__stat"><span>1000+</span><small>Residents</small></div>
+          <div class="why__stat"><span>4.8★</span><small>Avg Rating</small></div>
+          <div class="why__stat"><span>98%</span><small>Retention</small></div>
+        </div>
+      </div>
+
+      <div class="why__card why__card--split">
+        <div class="why__card-number">05</div>
+        <div class="why__card-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.18h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.81a16 16 0 0 0 6 6l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21.73 16z"/>
+          </svg>
+        </div>
+        <h3 class="why__card-title">24/7 Dedicated Support</h3>
+        <p class="why__card-desc">Our resident support team is always just a call away. From quick fixes to major concerns, we resolve every issue fast — because your comfort can't wait.</p>
+        <div class="why__card-tag">Always Available</div>
+        <a href="#" class="why__card-cta">
+          Talk to Us
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+<!-- ===== REVIEWS SECTION ===== -->
+<section class="reviews" id="reviews">
+  <div class="reviews__container">
+
+    <!-- LEFT SIDE -->
+    <div class="reviews__left">
+      <span class="reviews__tag">Resident Voices</span>
+      <h2 class="reviews__title">Shivraj Homes</h2>
+      <p class="reviews__location">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        Sector 22, Gurugram
+      </p>
+
+      <!-- Big Rating -->
+      <div class="reviews__rating-block">
+        <div class="reviews__rating-number">4.6</div>
+        <div class="reviews__rating-right">
+          <div class="reviews__stars">
+            <svg viewBox="0 0 24 24" width="22" height="22"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" fill="#C4622D" stroke="none"/></svg>
+            <svg viewBox="0 0 24 24" width="22" height="22"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" fill="#C4622D" stroke="none"/></svg>
+            <svg viewBox="0 0 24 24" width="22" height="22"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" fill="#C4622D" stroke="none"/></svg>
+            <svg viewBox="0 0 24 24" width="22" height="22"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" fill="#C4622D" stroke="none"/></svg>
+            <svg viewBox="0 0 24 24" width="22" height="22"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" fill="#C4622D" stroke="none" opacity="0.35"/></svg>
+          </div>
+          <p class="reviews__count">Based on <strong>100+ reviews</strong></p>
+        </div>
+      </div>
+
+      <!-- Rating Bars -->
+      <div class="reviews__bars">
+        <div class="reviews__bar-row">
+          <span>5★</span>
+          <div class="reviews__bar"><div class="reviews__bar-fill" style="width:72%"></div></div>
+          <span>72%</span>
+        </div>
+        <div class="reviews__bar-row">
+          <span>4★</span>
+          <div class="reviews__bar"><div class="reviews__bar-fill" style="width:18%"></div></div>
+          <span>18%</span>
+        </div>
+        <div class="reviews__bar-row">
+          <span>3★</span>
+          <div class="reviews__bar"><div class="reviews__bar-fill" style="width:6%"></div></div>
+          <span>6%</span>
+        </div>
+        <div class="reviews__bar-row">
+          <span>2★</span>
+          <div class="reviews__bar"><div class="reviews__bar-fill" style="width:3%"></div></div>
+          <span>3%</span>
+        </div>
+        <div class="reviews__bar-row">
+          <span>1★</span>
+          <div class="reviews__bar"><div class="reviews__bar-fill" style="width:1%"></div></div>
+          <span>1%</span>
+        </div>
+      </div>
+
+      <!-- Add Review Button -->
+      <a href="https://www.google.com/search?q=shivraj+pg+review&ie=UTF-8&lqi=ChFzaGl2cmFqIHBnIHJldmlldyICOAFIn8OvnJWzgIAIWhQQABABGAAYASIKc2hpdnJhaiBwZ5IBC2d1ZXN0X2hvdXNl#lkt=LocalPoiReviews&rlimm=14977534218731369998" target="_blank" class="reviews__add-btn">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        Write a Review
+      </a>
+    </div>
+
+    <!-- RIGHT SIDE — Slider -->
+    <div class="reviews__right">
+      <div class="reviews__slider-wrapper">
+        <div class="reviews__slider" id="reviewSlider">
+
+          <div class="reviews__card">
+            <div class="reviews__card-header">
+              <div class="reviews__avatar" style="background:#1E2D5E">P</div>
+              <div>
+                <div class="reviews__reviewer-name">Palak G.</div>
+                <div class="reviews__reviewer-time">4 months ago</div>
+              </div>
+              <div class="reviews__card-stars">★★★★★</div>
+            </div>
+            <p class="reviews__card-text">"Good experience overall. The staff is very cooperative and the rooms are well maintained. Would definitely recommend to working professionals."</p>
+          </div>
+
+          <div class="reviews__card">
+            <div class="reviews__card-header">
+              <div class="reviews__avatar" style="background:#C4622D">A</div>
+              <div>
+                <div class="reviews__reviewer-name">Ayush R.</div>
+                <div class="reviews__reviewer-time">4 months ago</div>
+              </div>
+              <div class="reviews__card-stars">★★★★★</div>
+            </div>
+            <p class="reviews__card-text">"Best PG in Gurgaon. Services are excellent, staff is very helpful. I strongly recommend Shivraj Homes to anyone looking for quality stay."</p>
+          </div>
+
+          <div class="reviews__card">
+            <div class="reviews__card-header">
+              <div class="reviews__avatar" style="background:#2a3d7a">S</div>
+              <div>
+                <div class="reviews__reviewer-name">Shubham B.</div>
+                <div class="reviews__reviewer-time">4 months ago</div>
+              </div>
+              <div class="reviews__card-stars">★★★★★</div>
+            </div>
+            <p class="reviews__card-text">"Lived here for over 2 years. Every query was addressed promptly. If you want a luxury corporate-style PG with top facilities, this is the place."</p>
+          </div>
+
+          <div class="reviews__card">
+            <div class="reviews__card-header">
+              <div class="reviews__avatar" style="background:#a84f23">N</div>
+              <div>
+                <div class="reviews__reviewer-name">Neha R.</div>
+                <div class="reviews__reviewer-time">4 months ago</div>
+              </div>
+              <div class="reviews__card-stars">★★★★★</div>
+            </div>
+            <p class="reviews__card-text">"As a female staying alone, I always felt completely safe here. Food is incredible, housekeeping is on time. Truly a memorable and wonderful experience."</p>
+          </div>
+
+          <div class="reviews__card">
+            <div class="reviews__card-header">
+              <div class="reviews__avatar" style="background:#1E2D5E">K</div>
+              <div>
+                <div class="reviews__reviewer-name">Karan R.</div>
+                <div class="reviews__reviewer-time">4 months ago</div>
+              </div>
+              <div class="reviews__card-stars">★★★★★</div>
+            </div>
+            <p class="reviews__card-text">"The property and services are outstanding. Stayed for 1.5 years ."</p>
+          </div>
+
+          <div class="reviews__card">
+            <div class="reviews__card-header">
+              <div class="reviews__avatar" style="background:#C4622D">S</div>
+              <div>
+                <div class="reviews__reviewer-name">Saurabh R.</div>
+                <div class="reviews__reviewer-time">5 months ago</div>
+              </div>
+              <div class="reviews__card-stars">★★★★☆</div>
+            </div>
+            <p class="reviews__card-text">"A great place with good food and a very helpful, co-operative staff. "</p>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Slider Controls -->
+      <div class="reviews__controls">
+        <button class="reviews__ctrl reviews__ctrl--prev" id="reviewPrev" aria-label="Previous">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+        </button>
+        <div class="reviews__dots" id="reviewDots"></div>
+        <button class="reviews__ctrl reviews__ctrl--next" id="reviewNext" aria-label="Next">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+        </button>
+      </div>
+    </div>
+
+  </div>
+</section>
+<!-- ===== CONTACT US SECTION ===== -->
+<section class="contact" id="contact">
+  <div class="contact__container">
+
+    <!-- Section Header -->
+    <div class="contact__header">
+      <span class="contact__tag">Get In Touch</span>
+      <h2 class="contact__title">Let's Find Your <span class="contact__title-accent">Perfect Room</span></h2>
+      <p class="contact__subtitle">Have questions? Want to book a visit? Our team is ready to help you move in without any hassle.</p>
+    </div>
+
+    <div class="contact__body">
+
+      <!-- LEFT — Info Cards -->
+      <div class="contact__info">
+
+        <div class="contact__info-card">
+          <div class="contact__info-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.18h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.81a16 16 0 0 0 6 6l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21.73 16z"/>
+            </svg>
+          </div>
+          <div class="contact__info-text">
+            <h4>Call Us</h4>
+            <a href="tel:+919650603063">+91 96506 03063</a>
+            <a href="tel:+918222887210">+91 82228 87210</a>
+          </div>
+        </div>
+
+        <div class="contact__info-card">
+          <div class="contact__info-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+              <polyline points="22,6 12,13 2,6"/>
+            </svg>
+          </div>
+          <div class="contact__info-text">
+            <h4>Email Us</h4>
+            <a href="mailto:contact@shivrajhomes.in">contact@shivrajhomes.in</a>
+          </div>
+        </div>
+
+        <div class="contact__info-card">
+          <div class="contact__info-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+              <circle cx="12" cy="10" r="3"/>
+            </svg>
+          </div>
+          <div class="contact__info-text">
+            <h4>Visit Us</h4>
+            <p>House No. 337DP, Pocket E,<br/>Sector 21, Gurugram,<br/>Haryana 122016</p>
+          </div>
+        </div>
+
+        <div class="contact__info-card">
+          <div class="contact__info-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"/>
+              <polyline points="12 6 12 12 16 14"/>
+            </svg>
+          </div>
+          <div class="contact__info-text">
+            <h4>Working Hours</h4>
+            <p>Monday – Saturday<br/>9:00 AM – 8:00 PM</p>
+          </div>
+        </div>
+
+        <!-- Social Links -->
+        <div class="contact__socials">
+          <a href="#" class="contact__social" aria-label="WhatsApp">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
+          </a>
+          <a href="#" class="contact__social" aria-label="Instagram">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          </a>
+          <a href="#" class="contact__social" aria-label="Facebook">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+          </a>
+          <a href="#" class="contact__social" aria-label="YouTube">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.95 1.96A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/></svg>
+          </a>
+        </div>
+
+      </div>
+
+      <!-- RIGHT — Contact Form -->
+      <div class="contact__form-wrap">
+        <form class="contact__form" id="contactForm">
+
+          <div class="contact__form-row">
+            <div class="contact__field">
+              <label for="c-name">Full Name</label>
+              <input type="text" id="c-name" placeholder="Rahul Sharma" required />
+            </div>
+            <div class="contact__field">
+              <label for="c-phone">Phone Number</label>
+              <input type="tel" id="c-phone" placeholder="+91 98765 43210" required />
+            </div>
+          </div>
+
+          <div class="contact__field">
+            <label for="c-email">Email Address</label>
+            <input type="email" id="c-email" placeholder="rahul@example.com" />
+          </div>
+
+          <div class="contact__field">
+            <label for="c-type">Room Type</label>
+            <select id="c-type">
+              <option value="" disabled selected>Select room type</option>
+              <option value="1rk">1RK Studio</option>
+              <option value="single">Co-Living Single</option>
+              <option value="double">Double Sharing</option>
+            </select>
+          </div>
+
+          <div class="contact__form-row">
+            <div class="contact__field">
+              <label for="c-checkin">Expected Move-In</label>
+              <input type="date" id="c-checkin" />
+            </div>
+            <div class="contact__field">
+              <label for="c-budget">Monthly Budget</label>
+              <select id="c-budget">
+                <option value="" disabled selected>Select budget</option>
+                <option>Under ₹8,000</option>
+                <option>₹8,000 – ₹12,000</option>
+                <option>₹12,000 – ₹16,000</option>
+                <option>Above ₹16,000</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="contact__field">
+            <label for="c-msg">Message (Optional)</label>
+            <textarea id="c-msg" rows="3" placeholder="Tell us anything — your preferences, questions, or special requirements..."></textarea>
+          </div>
+
+          <button type="submit" class="contact__submit">
+            Send Enquiry
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+          </button>
+
+          <p class="contact__form-note">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            Your details are safe with us. We never share your information.
+          </p>
+
+        </form>
+
+        <!-- Success Message -->
+        <div class="contact__success" id="contactSuccess">
+          <div class="contact__success-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          </div>
+          <h3>Enquiry Sent!</h3>
+          <p>Thank you for reaching out. Our team will contact you within 24 hours.</p>
+          <button class="contact__success-back" id="contactBack">Send Another</button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+<!-- ===== LOCATION POPUP OVERLAY ===== -->
+<div class="loc-overlay" id="locOverlay">
+  <div class="loc-modal" id="locModal">
+
+    <!-- Close Button -->
+    <button class="loc-close" id="locClose" aria-label="Close">
+      <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+
+    <div class="loc-body">
+
+      <!-- ===== LEFT SIDE ===== -->
+      <div class="loc-left">
+
+        <!-- Image Gallery -->
+        <div class="loc-gallery">
+          <div class="loc-gallery__main">
+            <img id="locMainImg" src="1774162250089.png" alt="PG Main" />
+            <div class="loc-gallery__badge" id="locBadge">Sector 21, Gurugram</div>
+          </div>
+          <div class="loc-gallery__thumbs" id="locThumbs">
+            <img src="1774162250089.png" class="active" onclick="switchImg(this)" alt="thumb1" />
+            <img src="1774162263990.png" onclick="switchImg(this)" alt="thumb2" />
+            <img src="1774162307006.png" onclick="switchImg(this)" alt="thumb3" />
+            <img src="1774162320908.png" onclick="switchImg(this)" alt="thumb4" />
+          </div>
+        </div>
+
+        <!-- PG Info -->
+        <div class="loc-info">
+          <div class="loc-info__header">
+            <div>
+              <h2 class="loc-info__name" id="locName">Shivraj Homes – Sector 21</h2>
+              <p class="loc-info__location">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                <span id="locAddress">House No. 337DP, Pocket E, Sector 21, Gurugram</span>
+              </p>
+            </div>
+            <div class="loc-info__price">
+              <span class="loc-info__from">Starts From</span>
+              <span class="loc-info__amount" id="locPrice">₹9,000<small>/mo</small></span>
+            </div>
+          </div>
+          <div class="loc-info__rating">
+            <span class="loc-stars">★★★★★</span>
+            <span class="loc-rating-num">4.6</span>
+            <span class="loc-rating-count">· 100+ Reviews</span>
+          </div>
+        </div>
+
+        <!-- Property Overview -->
+        <div class="loc-section">
+          <h3 class="loc-section__title">Property Overview</h3>
+          <div class="loc-overview__grid">
+            <div class="loc-overview__item">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+              <span>PG / Co-Living</span>
+            </div>
+            <div class="loc-overview__item">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+              <span>Boys & Girls</span>
+            </div>
+            <div class="loc-overview__item">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+              <span>Flexible Payment</span>
+            </div>
+            <div class="loc-overview__item">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              <span>Immediate Move-In</span>
+            </div>
+            <div class="loc-overview__item">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+              <span>Power Backup</span>
+            </div>
+            <div class="loc-overview__item">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
+              <span>Lift Available</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Amenities -->
+        <div class="loc-section">
+          <h3 class="loc-section__title">Amenities</h3>
+          <div class="loc-amenities">
+            <span class="loc-amenity">📶 Wi-Fi</span>
+            <span class="loc-amenity">📷 CCTV</span>
+            <span class="loc-amenity">🍽️ Meals</span>
+            <span class="loc-amenity">❄️ AC</span>
+            <span class="loc-amenity">🧺 Laundry</span>
+            <span class="loc-amenity">🅿️ Parking</span>
+            <span class="loc-amenity">🛗 Lift</span>
+            <span class="loc-amenity">🧹 Housekeeping</span>
+            <span class="loc-amenity">🔋 Power Backup</span>
+            <span class="loc-amenity">🎮 Indoor Games</span>
+            <span class="loc-amenity">💧 Water Purifier</span>
+            <span class="loc-amenity">🍳 Kitchen</span>
+          </div>
+        </div>
+
+        <!-- Map -->
+        <div class="loc-section">
+          <h3 class="loc-section__title">Location on Map</h3>
+          <div class="loc-map">
+            <iframe id="locMap"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3506.2!2d77.0266!3d28.5021!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjjCsDMwJzA3LjYiTiA3N8KwMDEnMzUuOCJF!5e0!3m2!1sen!2sin!4v1234567890"
+              width="100%" height="220" style="border:0;border-radius:12px;" allowfullscreen="" loading="lazy">
+            </iframe>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- ===== RIGHT SIDE ===== -->
+      <div class="loc-right">
+        <div class="loc-enquiry">
+
+          <div class="loc-enquiry__header">
+            <div class="loc-enquiry__icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            </div>
+            <div>
+              <h3 class="loc-enquiry__title">Have a Question?</h3>
+              <p class="loc-enquiry__sub">Let's enquire together</p>
+            </div>
+          </div>
+
+          <form class="loc-form" id="locForm">
+            <div class="loc-field">
+              <label>Full Name</label>
+              <input type="text" placeholder="Rahul Sharma" required />
+            </div>
+            <div class="loc-field">
+              <label>Email Address</label>
+              <input type="email" placeholder="rahul@example.com" />
+            </div>
+            <div class="loc-field">
+              <label>Phone Number</label>
+              <input type="tel" placeholder="+91 98765 43210" required />
+            </div>
+            <div class="loc-field">
+              <label>Interested In</label>
+              <select>
+                <option value="" disabled selected>Select room type</option>
+                <option>1RK Studio</option>
+                <option>Co-Living Single</option>
+                <option>Double Sharing</option>
+              </select>
+            </div>
+            <div class="loc-field">
+              <label>Message</label>
+              <textarea rows="3" placeholder="Any specific requirements or questions..."></textarea>
+            </div>
+            <button type="submit" class="loc-submit">
+              Send Enquiry
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+            </button>
+          </form>
+
+          <!-- Success -->
+          <div class="loc-form-success" id="locSuccess">
+            <div class="loc-success-icon">✓</div>
+            <h4>Enquiry Sent!</h4>
+            <p>We'll reach out to you within 24 hours.</p>
+          </div>
+
+          <!-- Divider -->
+          <div class="loc-divider"><span>PG Contact Info</span></div>
+
+          <!-- PG Contact Info -->
+          <div class="loc-pg-info">
+            <a href="tel:+919650603063" class="loc-pg-info__item">
+              <div class="loc-pg-info__icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.18h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.81a16 16 0 0 0 6 6l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21.73 16z"/></svg>
+              </div>
+              <div>
+                <small>Phone</small>
+                <span>+91 96506 03063</span>
+              </div>
+            </a>
+            <a href="mailto:contact@shivrajhomes.in" class="loc-pg-info__item">
+              <div class="loc-pg-info__icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              </div>
+              <div>
+                <small>Email</small>
+                <span>contact@shivrajhomes.in</span>
+              </div>
+            </a>
+            <div class="loc-pg-info__item">
+              <div class="loc-pg-info__icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              </div>
+              <div>
+                <small>Address</small>
+                <span id="locPopupAddr">Sector 21, Gurugram, Haryana 122016</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+
+  <!-- Top Wave -->
+  <div class="footer__wave">
+    <svg viewBox="0 0 1440 60" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+      <path d="M0,30 C360,60 1080,0 1440,30 L1440,0 L0,0 Z" fill="#f5f4f0"/>
+    </svg>
+  </div>
+
+  <div class="footer__container">
+
+    <!-- Top Section -->
+    <div class="footer__top">
+
+      <!-- Brand -->
+      <div class="footer__brand">
+        <img src="" alt="Shivraj Homes" class="footer__logo" />
+        <p class="footer__tagline">Premium PG & Co-Living spaces designed for comfort, safety, and community in the heart of Gurugram.</p>
+        <div class="footer__socials">
+          <a href="#" class="footer__social" aria-label="WhatsApp">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
+          </a>
+          <a href="#" class="footer__social" aria-label="Instagram">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          </a>
+          <a href="#" class="footer__social" aria-label="Facebook">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+          </a>
+          <a href="#" class="footer__social" aria-label="YouTube">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.95 1.96A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Quick Links -->
+      <div class="footer__col">
+        <h4 class="footer__col-title">Quick Links</h4>
+        <ul class="footer__links">
+          <li><a href="#">Home</a></li>
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">Our Rooms</a></li>
+          <li><a href="#">Amenities</a></li>
+          <li><a href="#">Reviews</a></li>
+          <li><a href="#">Contact Us</a></li>
+        </ul>
+      </div>
+
+      <!-- Room Types -->
+      <div class="footer__col">
+        <h4 class="footer__col-title">Room Types</h4>
+        <ul class="footer__links">
+          <li><a href="#">1RK Studio</a></li>
+          <li><a href="#">Co-Living Single</a></li>
+          <li><a href="#">Double Sharing</a></li>
+          <li><a href="#">Short Stay</a></li>
+          <li><a href="#">Girls PG</a></li>
+          <li><a href="#">Boys PG</a></li>
+        </ul>
+      </div>
+
+      <!-- Locations -->
+      <div class="footer__col">
+        <h4 class="footer__col-title">Our Locations</h4>
+        <ul class="footer__links">
+          <li><a href="#">Sector 21, Gurugram</a></li>
+          <li><a href="#">Sector 23, Gurugram</a></li>
+          <li><a href="#">Sector 23A, Gurugram</a></li>
+          <li><a href="#">South Delhi</a></li>
+          <li><a href="#">Noida Sector 62</a></li>
+          <li><a href="#">Faridabad</a></li>
+        </ul>
+      </div>
+
+      <!-- Contact -->
+      <div class="footer__col">
+        <h4 class="footer__col-title">Contact Us</h4>
+        <ul class="footer__contact-list">
+          <li>
+            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.18h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.81a16 16 0 0 0 6 6l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21.73 16z"/></svg>
+            <a href="tel:+919650603063">+91 96506 03063</a>
+          </li>
+          <li>
+            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            <a href="mailto:contact@shivrajhomes.in">contact@shivrajhomes.in</a>
+          </li>
+          <li>
+            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <span>337DP, Pocket E, Sector 21, Gurugram, Haryana 122016</span>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+
+    <!-- Divider -->
+    <div class="footer__divider"></div>
+
+    <!-- Bottom -->
+    <div class="footer__bottom">
+      <p class="footer__copy">© 2026 Shivraj Homes. All Rights Reserved.</p>
+
+      <!-- Creative Credits -->
+      <div class="footer__credits">
+        <span class="footer__credits-text">Crafted with</span>
+        <span class="footer__credits-heart">♥</span>
+        <span class="footer__credits-text">by</span>
+        <span class="footer__credits-names">
+          <span class="footer__credits-name footer__credits-name--a">Aayushi</span>
+          <span class="footer__credits-amp">&</span>
+          <span class="footer__credits-name footer__credits-name--b">Aniwesh</span>
+        </span>
+      </div>
+
+      <div class="footer__bottom-links">
+        <a href="#">Privacy Policy</a>
+        <span>·</span>
+        <a href="#">Terms of Use</a>
+      </div>
+    </div>
+
+  </div>
+</footer>
+  <script src="script.js"></script>
+</body>
+</html>
