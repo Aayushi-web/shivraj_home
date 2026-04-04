@@ -869,5 +869,74 @@ document.addEventListener('DOMContentLoaded', () => {
   }, 4000);
 
 });
+document.addEventListener('DOMContentLoaded', () => {
+
+  const overlay    = document.getElementById('authOverlay');
+  const closeBtn   = document.getElementById('authClose');
+  const indicator  = document.getElementById('authTabIndicator');
+  const loginForm  = document.getElementById('loginForm');
+  const signupForm = document.getElementById('signupForm');
+  const successDiv = document.getElementById('authSuccess');
+  const successClose = document.getElementById('authSuccessClose');
+
+  if (!overlay) return;
+
+  // Open on page load after 0.8s
+  setTimeout(() => overlay.classList.add('open'), 800);
+
+  function closeAuth() {
+    overlay.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  closeBtn.addEventListener('click', closeAuth);
+  successClose && successClose.addEventListener('click', closeAuth);
+
+  overlay.addEventListener('click', e => { if (e.target === overlay) closeAuth(); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeAuth(); });
+
+  // Tabs
+  function switchTab(tab) {
+    document.querySelectorAll('.auth-tab').forEach(t => t.classList.remove('active'));
+    document.querySelector(`[data-tab="${tab}"]`).classList.add('active');
+    loginForm.classList.remove('active');
+    signupForm.classList.remove('active');
+    if (tab === 'login') {
+      loginForm.classList.add('active');
+      indicator.classList.remove('right');
+    } else {
+      signupForm.classList.add('active');
+      indicator.classList.add('right');
+    }
+  }
+
+  document.querySelectorAll('.auth-tab').forEach(tab => {
+    tab.addEventListener('click', () => switchTab(tab.dataset.tab));
+  });
+
+  document.querySelectorAll('.auth-switch-btn').forEach(btn => {
+    btn.addEventListener('click', () => switchTab(btn.dataset.switch));
+  });
+
+  // Password toggle
+  document.querySelectorAll('.auth-eye').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const input = document.getElementById(btn.dataset.target);
+      input.type = input.type === 'password' ? 'text' : 'password';
+    });
+  });
+
+  // Submit
+  document.getElementById('loginSubmit').addEventListener('click', () => {
+    loginForm.style.display = 'none';
+    successDiv.classList.add('show');
+  });
+
+  document.getElementById('signupSubmit').addEventListener('click', () => {
+    signupForm.style.display = 'none';
+    successDiv.classList.add('show');
+  });
+
+});
 window.open('https://www.linkedin.com/in/mishraaayushi_/'); // ← replace with Aayushi's real URL
 window.open('https://www.linkedin.com/in/aniwesh-tiwari'); // ← replace with Aniwesh's real URL
