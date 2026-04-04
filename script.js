@@ -871,18 +871,20 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 document.addEventListener('DOMContentLoaded', () => {
 
-  const overlay    = document.getElementById('authOverlay');
-  const closeBtn   = document.getElementById('authClose');
-  const indicator  = document.getElementById('authTabIndicator');
-  const loginForm  = document.getElementById('loginForm');
-  const signupForm = document.getElementById('signupForm');
-  const successDiv = document.getElementById('authSuccess');
+  const overlay      = document.getElementById('authOverlay');
+  const closeBtn     = document.getElementById('authClose');
+  const leadForm     = document.getElementById('leadForm');
+  const successDiv   = document.getElementById('authSuccess');
+  const submitBtn    = document.getElementById('leadSubmit');
   const successClose = document.getElementById('authSuccessClose');
 
   if (!overlay) return;
 
-  // Open on page load after 0.8s
-  setTimeout(() => overlay.classList.add('open'), 800);
+  // Open after 0.8s
+  setTimeout(() => {
+    overlay.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }, 800);
 
   function closeAuth() {
     overlay.classList.remove('open');
@@ -891,50 +893,52 @@ document.addEventListener('DOMContentLoaded', () => {
 
   closeBtn.addEventListener('click', closeAuth);
   successClose && successClose.addEventListener('click', closeAuth);
-
   overlay.addEventListener('click', e => { if (e.target === overlay) closeAuth(); });
   document.addEventListener('keydown', e => { if (e.key === 'Escape') closeAuth(); });
 
-  // Tabs
-  function switchTab(tab) {
-    document.querySelectorAll('.auth-tab').forEach(t => t.classList.remove('active'));
-    document.querySelector(`[data-tab="${tab}"]`).classList.add('active');
-    loginForm.classList.remove('active');
-    signupForm.classList.remove('active');
-    if (tab === 'login') {
-      loginForm.classList.add('active');
-      indicator.classList.remove('right');
-    } else {
-      signupForm.classList.add('active');
-      indicator.classList.add('right');
-    }
-  }
-
-  document.querySelectorAll('.auth-tab').forEach(tab => {
-    tab.addEventListener('click', () => switchTab(tab.dataset.tab));
-  });
-
-  document.querySelectorAll('.auth-switch-btn').forEach(btn => {
-    btn.addEventListener('click', () => switchTab(btn.dataset.switch));
-  });
-
-  // Password toggle
-  document.querySelectorAll('.auth-eye').forEach(btn => {
-    btn.addEventListener('click', () => {
-      const input = document.getElementById(btn.dataset.target);
-      input.type = input.type === 'password' ? 'text' : 'password';
-    });
-  });
-
   // Submit
-  document.getElementById('loginSubmit').addEventListener('click', () => {
-    loginForm.style.display = 'none';
-    successDiv.classList.add('show');
+  submitBtn.addEventListener('click', () => {
+    const name  = document.getElementById('leadName').value.trim();
+    const phone = document.getElementById('leadPhone').value.trim();
+    const email = document.getElementById('leadEmail').value.trim();
+
+    // Basic validation
+    let valid = true;
+
+    [document.getElementById('leadName'),
+     document.getElementById('leadPhone'),
+     document.getElementById('leadEmail')].forEach(field => {
+      if (!field.value.trim()) {
+        field.closest('.auth-input-wrap').style.borderColor = '#e53e3e';
+        field.addEventListener('input', () => {
+          field.closest('.auth-input-wrap').style.borderColor = '';
+        }, { once: true });
+        valid = false;
+      }
+    });
+
+    if (!valid) return;
+
+    // Show loading
+    submitBtn.textContent = 'Submitting...';
+    submitBtn.disabled = true;
+
+    setTimeout(() => {
+      leadForm.style.display = 'none';
+      successDiv.classList.add('show');
+    }, 1000);
   });
 
-  document.getElementById('signupSubmit').addEventListener('click', () => {
-    signupForm.style.display = 'none';
-    successDiv.classList.add('show');
+  // Label focus color
+  document.querySelectorAll('.auth-input-wrap input, .auth-input-wrap textarea').forEach(field => {
+    field.addEventListener('focus', () => {
+      const label = field.closest('.auth-field')?.querySelector('label');
+      if (label) label.style.color = '#C4622D';
+    });
+    field.addEventListener('blur', () => {
+      const label = field.closest('.auth-field')?.querySelector('label');
+      if (label) label.style.color = '';
+    });
   });
 
 });
