@@ -744,5 +744,130 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
 });
+// ===========================
+// CHATBOT + WHATSAPP — JS
+// ===========================
+
+document.addEventListener('DOMContentLoaded', () => {
+
+  const chatbot       = document.getElementById('chatbot');
+  const toggleBtn     = document.getElementById('chatbotToggle');
+  const closeBtn      = document.getElementById('chatbotClose');
+  const messages      = document.getElementById('chatbotMessages');
+  const input         = document.getElementById('chatbotInput');
+  const sendBtn       = document.getElementById('chatbotSend');
+  const quickReplies  = document.getElementById('quickReplies');
+  const badge         = document.getElementById('chatbotBadge');
+
+  if (!chatbot) return;
+
+  // ---- Bot responses ----
+  const responses = {
+    'what rooms are available?': `We offer 3 room types:\n🏠 <b>1RK Studio</b> — ₹14,000/mo\n🛏️ <b>Co-Living Single</b> — ₹13,000/mo\n👥 <b>Double Sharing</b> — ₹9,000/mo\n\nWould you like to book a visit?`,
+    'what is the starting price?': `Our rooms start from just <b>₹9,000/month</b> for double sharing.\n\n💡 All prices include housekeeping, Wi-Fi & security. No hidden charges!`,
+    'what amenities do you offer?': `We offer <b>20+ premium amenities</b> including:\n📶 High-Speed Wi-Fi\n❄️ AC Rooms\n🍽️ Tasty Meals\n🧹 Daily Housekeeping\n📷 CCTV Security\n🛗 Lift & Parking\n🔋 Power Backup\n🎮 Indoor Games\n...and much more!`,
+    'where are you located?': `📍 We are located in:\n• <b>Sector 21</b>, Gurugram\n• <b>Sector 23</b>, Gurugram\n• <b>Sector 23A</b>, Gurugram\n• South <b>Delhi</b>\n• <b>Noida</b> Sector 62\n• <b>Faridabad</b>`,
+    'i want to book a visit': `Great! 🎉 You can book a free visit by calling us:\n📞 <b>+91 96506 03063</b>\n📞 <b>+91 82228 87210</b>\n\nOr use the <b>Contact Us</b> form on our website. We'll confirm your slot within 1 hour!`,
+    'how do i contact you?': `You can reach us through:\n📞 <b>+91 96506 03063</b>\n📧 <b>contact@shivrajhomes.in</b>\n💬 WhatsApp button on the left\n\nWe're available <b>Mon–Sat, 9AM–8PM</b>.`,
+  };
+
+  const defaultResponse = `Thanks for your message! 😊 Our team will get back to you shortly.\n\nFor immediate help, call us at <b>+91 96506 03063</b> or click the WhatsApp button.`;
+
+  // ---- Toggle open/close ----
+  function openChat() {
+    chatbot.classList.add('open');
+    badge.classList.add('hidden');
+    input.focus();
+  }
+
+  function closeChat() {
+    chatbot.classList.remove('open');
+  }
+
+  toggleBtn.addEventListener('click', () => {
+    chatbot.classList.contains('open') ? closeChat() : openChat();
+  });
+
+  closeBtn.addEventListener('click', closeChat);
+
+  // ---- Add message ----
+  function addMessage(text, sender) {
+    const msg = document.createElement('div');
+    msg.classList.add('chatbot__msg', `chatbot__msg--${sender}`);
+
+    const bubble = document.createElement('div');
+    bubble.classList.add('chatbot__msg-bubble');
+    bubble.innerHTML = text.replace(/\n/g, '<br/>');
+
+    const time = document.createElement('span');
+    time.classList.add('chatbot__msg-time');
+    time.textContent = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+
+    msg.appendChild(bubble);
+    msg.appendChild(time);
+    messages.appendChild(msg);
+    messages.scrollTop = messages.scrollHeight;
+  }
+
+  // ---- Typing indicator ----
+  function showTyping() {
+    const typing = document.createElement('div');
+    typing.classList.add('chatbot__msg', 'chatbot__msg--bot', 'chatbot__typing');
+    typing.id = 'typingIndicator';
+    typing.innerHTML = `<div class="chatbot__msg-bubble">
+      <span class="chatbot__dot"></span>
+      <span class="chatbot__dot"></span>
+      <span class="chatbot__dot"></span>
+    </div>`;
+    messages.appendChild(typing);
+    messages.scrollTop = messages.scrollHeight;
+  }
+
+  function hideTyping() {
+    const t = document.getElementById('typingIndicator');
+    if (t) t.remove();
+  }
+
+  // ---- Send message ----
+  function sendMessage(text) {
+    if (!text.trim()) return;
+
+    addMessage(text, 'user');
+    input.value = '';
+
+    // Hide quick replies after first interaction
+    quickReplies.style.display = 'none';
+
+    showTyping();
+
+    setTimeout(() => {
+      hideTyping();
+      const key = text.toLowerCase();
+      const reply = responses[key] || defaultResponse;
+      addMessage(reply, 'bot');
+    }, 1200);
+  }
+
+  sendBtn.addEventListener('click', () => sendMessage(input.value));
+
+  input.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') sendMessage(input.value);
+  });
+
+  // ---- Quick reply buttons ----
+  document.querySelectorAll('.chatbot__quick-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      sendMessage(btn.dataset.msg);
+    });
+  });
+
+  // ---- Auto open after 4s with greeting ----
+  setTimeout(() => {
+    if (!chatbot.classList.contains('open')) {
+      badge.classList.remove('hidden');
+    }
+  }, 4000);
+
+});
 window.open('https://www.linkedin.com/in/mishraaayushi_/'); // ← replace with Aayushi's real URL
 window.open('https://www.linkedin.com/in/aniwesh-tiwari'); // ← replace with Aniwesh's real URL
