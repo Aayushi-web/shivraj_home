@@ -335,7 +335,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (!form) return;
 
-  // Form Submit
+  // Form Submit with Google Sheets
   form.addEventListener('submit', function (e) {
     e.preventDefault();
     let valid = true;
@@ -347,15 +347,43 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
     if (!valid) return;
+    
     const btn = form.querySelector('.contact__submit');
-    btn.textContent = 'Sending...';
+    const originalText = btn.innerHTML;
+    btn.innerHTML = 'Submitting...';
     btn.disabled = true;
-    setTimeout(() => {
+    
+    // Collect form data
+    const formData = {
+      name: document.getElementById('c-name').value,
+      phone: document.getElementById('c-phone').value,
+      email: document.getElementById('c-email').value || '',
+      roomType: document.getElementById('c-type').value,
+      moveInDate: document.getElementById('c-checkin').value || '',
+      budget: document.getElementById('c-budget').value || '',
+      message: document.getElementById('c-msg').value || ''
+    };
+    
+    // Replace with your Google Apps Script Web App URL
+    const GOOGLE_SHEET_URL = 'https://script.google.com/macros/s/AKfycbzrjAyB6jdYe2UJ6K5CEw2sN7eNpI3g7G7T3nFgTmtB7v8PB3BI-PQ5TjN10vaeSvgU/exec';
+    
+    fetch(GOOGLE_SHEET_URL, {
+      method: 'POST',
+      mode: 'no-cors',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(formData)
+    })
+    .then(() => {
       form.style.display = 'none';
       success.classList.add('show');
-    }, 1200);
+    })
+    .catch(error => {
+      console.error('Error:', error);
+      btn.innerHTML = originalText;
+      btn.disabled = false;
+      alert('Something went wrong. Please try again or call us directly.');
+    });
   });
-
   // Back Button
   if (backBtn) {
     backBtn.addEventListener('click', () => {
@@ -410,39 +438,99 @@ function nextSlide() {
 }
 
 setInterval(nextSlide, 4000);
-const locationData = {
-  gurugram: {
-    name:      'Shivraj Homes – Sector 21',
-    badge:     'Sector 21, Gurugram',
-    address:   'House No. 337DP, Pocket E, Sector 21, Gurugram',
+// Property Cards Data for each sector
+const sectorProperties = {
+  sector21: {
+    name: 'Shivraj Homes – Sector 21',
+    badge: 'Sector 21, Gurugram',
+    address: 'House No. 337DP, Pocket E, Sector 21, Gurugram',
     popupAddr: 'Sector 21, Gurugram, Haryana 122016',
-    price:     '₹9,000',
-    mapSrc:    'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3506.2!2d77.0266!3d28.5021!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjjCsDMwJzA3LjYiTiA3N8KwMDEnMzUuOCJF!5e0!3m2!1sen!2sin!4v1234567890',
+    price: '₹9,000',
+    mapSrc: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3506.2!2d77.0266!3d28.5021!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjjCsDMwJzA3LjYiTiA3N8KwMDEnMzUuOCJF!5e0!3m2!1sen!2sin!4v1234567890',
+    properties: [
+      {
+        name: 'Shivraj Homes - 21C',
+        location: 'Sector 21C, Gurugram',
+        price: '₹9,000',
+        badge: 'Most Popular',
+        image: '1774162250089.png',
+        amenities: ['Wi-Fi', 'AC', 'Meals', 'Parking', 'Lift'],
+        phone: '+91 96506 03063'
+      },
+      {
+        name: 'Shivraj Homes - Dhundahera',
+        location: 'Dhundahera, Gurugram',
+        price: '₹8,500',
+        badge: 'Budget Friendly',
+        image: '1774162263990.png',
+        amenities: ['Wi-Fi', 'CCTV', 'Parking', 'Power Backup'],
+        phone: '+91 96506 03063'
+      }
+    ]
   },
-  delhi: {
-    name:      'Shivraj Homes – Delhi',
-    badge:     'South Delhi',
-    address:   'Green Park, South Delhi, Delhi',
-    popupAddr: 'Green Park, New Delhi, Delhi 110016',
-    price:     '₹11,000',
-    mapSrc:    'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3504.5!2d77.2090!3d28.5562!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjjCsDMzJzIyLjMiTiA3N8KwMTInMzIuNCJF!5e0!3m2!1sen!2sin!4v1234567890',
+  sector22: {
+    name: 'Shivraj Homes – Sector 22',
+    badge: 'Sector 22, Gurugram',
+    address: 'Sector 22, Near Palam Vihar, Gurugram',
+    popupAddr: 'Sector 22, Gurugram, Haryana 122015',
+    price: '₹9,500',
+    mapSrc: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3506.5!2d77.0290!3d28.5050!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjjCsDMwJzE4LjAiTiA3N8KwMDEnNDQuMCJF!5e0!3m2!1sen!2sin!4v1234567890',
+    properties: [
+      {
+        name: 'Shivraj Homes - 22A',
+        location: 'Sector 22A, Gurugram',
+        price: '₹9,500',
+        badge: 'Premium',
+        image: '1774162307006.png',
+        amenities: ['Wi-Fi', 'AC', 'Meals', 'Lift', 'Parking', 'Housekeeping'],
+        phone: '+91 96506 03063'
+      },
+      {
+        name: 'Shivraj Homes - 22B',
+        location: 'Sector 22B, Gurugram',
+        price: '₹9,000',
+        badge: 'Best Value',
+        image: '1774162320908.png',
+        amenities: ['Wi-Fi', 'CCTV', 'Meals', 'Housekeeping', 'Power Backup'],
+        phone: '+91 96506 03063'
+      },
+      {
+        name: 'Shivraj Homes - Mullahera',
+        location: 'Mullahera, Gurugram',
+        price: '₹8,000',
+        badge: 'Budget',
+        image: '181627717.jpg',
+        amenities: ['Wi-Fi', 'Parking', 'Power Backup', 'Water Purifier', 'CCTV'],
+        phone: '+91 96506 03063'
+      }
+    ]
   },
-  noida: {
-    name:      'Shivraj Homes – Noida',
-    badge:     'Sector 62, Noida',
-    address:   'Sector 62, Noida, Uttar Pradesh',
-    popupAddr: 'Sector 62, Noida, Uttar Pradesh 201309',
-    price:     '₹10,000',
-    mapSrc:    'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3502.1!2d77.3650!3d28.6270!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjjCsDM3JzM3LjIiTiA3N8KwMjEnNTQuMCJF!5e0!3m2!1sen!2sin!4v1234567890',
-  },
-  faridabad: {
-    name:      'Shivraj Homes – Faridabad',
-    badge:     'Sector 15, Faridabad',
-    address:   'Sector 15, Faridabad, Haryana',
-    popupAddr: 'Sector 15, Faridabad, Haryana 121007',
-    price:     '₹8,500',
-    mapSrc:    'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3510.5!2d77.3178!3d28.4089!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjjCsDI0JzMyLjAiTiA3N8KwMTknMDQuMSJF!5e0!3m2!1sen!2sin!4v1234567890',
-  },
+  sector23: {
+    name: 'Shivraj Homes – Sector 23',
+    badge: 'Sector 23, Gurugram',
+    address: 'Sector 23A, Gurugram',
+    popupAddr: 'Sector 23, Gurugram, Haryana 122017',
+    price: '₹10,000',
+    mapSrc: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3507.0!2d77.0320!3d28.5100!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjjCsDMwJzM2LjAiTiA3N8KwMDEnNTUuMCJF!5e0!3m2!1sen!2sin!4v1234567890',
+    properties: [
+      {
+        name: 'Shivraj Homes - 23A',
+        location: 'Sector 23A, Gurugram',
+        price: '₹10,000',
+        badge: 'New Launch',
+        image: '1.jpg',
+        amenities: ['Wi-Fi', 'AC', 'Meals', 'Lift', 'Gym Access', 'Parking'],
+        phone: '+91 96506 03063'
+      }
+    ]
+  }
+};
+
+const locationData = {
+  gurugram: sectorProperties.sector21,
+  sector21: sectorProperties.sector21,
+  sector22: sectorProperties.sector22,
+  sector23: sectorProperties.sector23
 };
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -455,17 +543,71 @@ document.addEventListener('DOMContentLoaded', () => {
   if (!overlay) return;
 
   function openPopup(key) {
-    const data = locationData[key] || locationData.gurugram;
+    const data = locationData[key] || locationData.sector21;
     document.getElementById('locName').textContent      = data.name;
     document.getElementById('locAddress').textContent   = data.address;
     document.getElementById('locBadge').textContent     = data.badge;
     document.getElementById('locPrice').innerHTML       = data.price + '<small>/mo</small>';
     document.getElementById('locPopupAddr').textContent = data.popupAddr;
     document.getElementById('locMap').src               = data.mapSrc;
+    
+    // Show property cards section and inject cards
+    const propertyCardsSection = document.getElementById('propertyCardsSection');
+    const propertyCardsContainer = document.getElementById('locPropertyCards');
+    
+    if (data.properties && data.properties.length > 0) {
+      propertyCardsSection.style.display = 'block';
+      
+      // Generate property cards HTML
+      propertyCardsContainer.innerHTML = data.properties.map(prop => `
+        <div class="loc-property-card">
+          <div class="loc-property-card__image" style="background-image: url('${prop.image}')">
+            <span class="loc-property-card__badge">${prop.badge}</span>
+          </div>
+          <div class="loc-property-card__content">
+            <h4 class="loc-property-card__name">${prop.name}</h4>
+            <div class="loc-property-card__location">
+              <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              ${prop.location}
+            </div>
+            <div class="loc-property-card__price">${prop.price}<small>/mo</small></div>
+            <div class="loc-property-card__amenities">
+              ${prop.amenities.map(a => `<span class="loc-property-card__amenity">${a}</span>`).join('')}
+            </div>
+            <button class="loc-property-card__btn" onclick="showPropertyContact('${prop.name}', '${prop.phone}')">
+              View Details →
+            </button>
+          </div>
+        </div>
+      `).join('');
+    } else {
+      propertyCardsSection.style.display = 'none';
+    }
+    
     if (form) { form.reset(); form.style.display = 'flex'; success.classList.remove('show'); }
     overlay.classList.add('open');
     document.body.style.overflow = 'hidden';
   }
+
+// Function to show property contact popup
+window.showPropertyContact = function(propertyName, phone) {
+  const tempPopup = document.createElement('div');
+  tempPopup.className = 'quick-popup--temp';
+  tempPopup.style.cssText = 'position:fixed;inset:0;z-index:100000;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,0.7);';
+  tempPopup.innerHTML = `
+    <div style="background:#fff;border-radius:20px;padding:28px;max-width:320px;text-align:center;">
+      <button style="float:right;background:none;border:none;font-size:20px;cursor:pointer;" onclick="this.closest('.quick-popup--temp').remove()">✕</button>
+      <div style="font-size:40px;margin-bottom:10px;">🏢</div>
+      <h3 style="font-family:Poppins;color:#1E2D5E;margin:10px 0;">${propertyName}</h3>
+      <div style="margin:20px 0;">
+        <a href="tel:${phone}" style="display:block;background:#C4622D;color:#fff;padding:12px;border-radius:50px;text-decoration:none;margin:10px 0;font-weight:600;">📞 Call ${phone}</a>
+        <a href="https://wa.me/${phone.replace(/[^0-9]/g, '')}" target="_blank" style="display:block;background:#25D366;color:#fff;padding:12px;border-radius:50px;text-decoration:none;margin:10px 0;font-weight:600;">💬 WhatsApp</a>
+        <button onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'}); this.closest('.quick-popup--temp').remove(); document.getElementById('locOverlay').classList.remove('open')" style="display:block;background:#1E2D5E;color:#fff;padding:12px;border-radius:50px;border:none;width:100%;font-weight:600;cursor:pointer;">📝 Enquire Now</button>
+      </div>
+    </div>
+  `;
+  document.body.appendChild(tempPopup);
+};
 
   function closePopup() {
     overlay.classList.remove('open');
@@ -476,15 +618,15 @@ document.addEventListener('DOMContentLoaded', () => {
   overlay.addEventListener('click', e => { if (e.target === overlay) closePopup(); });
   document.addEventListener('keydown', e => { if (e.key === 'Escape') closePopup(); });
 
-  // Hook navbar dropdown items
+ // Hook navbar dropdown items
   document.querySelectorAll('.navbar__dropdown-item').forEach(item => {
     item.addEventListener('click', e => {
       e.preventDefault();
       const text = item.textContent.trim().toLowerCase();
-      let key = 'gurugram';
-      if (text.includes('delhi'))     key = 'delhi';
-      if (text.includes('noida'))     key = 'noida';
-      if (text.includes('faridabad')) key = 'faridabad';
+      let key = 'sector21';
+      if (text.includes('sector 21')) key = 'sector21';
+      if (text.includes('sector 22')) key = 'sector22';
+      if (text.includes('sector 23')) key = 'sector23';
       openPopup(key);
       document.querySelectorAll('.navbar__dropdown').forEach(d => d.classList.remove('open'));
     });
@@ -677,18 +819,18 @@ document.addEventListener('DOMContentLoaded', () => {
       <h3 class="quick-popup__title">24/7 Support</h3>
       <p class="quick-popup__sub">Our team is always here — call us anytime</p>
       <div class="quick-popup__items">
-        <a href="tel:+91946624821" class="quick-popup__item">
+        <a href="tel:+9192206 01420" class="quick-popup__item">
           <span class="quick-popup__item-icon">📱</span>
           <div>
             <small>Support Line</small>
-            <span>+91 946624821</span>
+            <span>+91 92206 01420</span>
           </div>
         </a>
-        <a href="tel:+91946624821" class="quick-popup__item">
+        <a href="tel:+919217234443" class="quick-popup__item">
           <span class="quick-popup__item-icon">📱</span>
           <div>
             <small>Alternate</small>
-            <span>+91 946624821 </span>
+            <span>+91 92172 34443 </span>
           </div>
         </a>
       </div>
@@ -721,7 +863,7 @@ document.addEventListener('DOMContentLoaded', () => {
     nameA.style.cursor = 'pointer';
     nameA.title = 'View Aayushi on LinkedIn';
     nameA.addEventListener('click', () => {
-      window.open('https://www.linkedin.com/in/aayushi', '_blank');
+      window.open('https://www.linkedin.com/in/mishraaayushi/');
     });
   }
 
@@ -729,7 +871,7 @@ document.addEventListener('DOMContentLoaded', () => {
     nameB.style.cursor = 'pointer';
     nameB.title = 'View Aniwesh on LinkedIn';
     nameB.addEventListener('click', () => {
-      window.open('https://www.linkedin.com/in/aniwesh', '_blank');
+      window.open('https://www.linkedin.com/in/aniwesh-tiwari/');
     });
   }
 
@@ -766,12 +908,13 @@ document.addEventListener('DOMContentLoaded', () => {
     'what rooms are available?': `We offer 3 room types:\n🏠 <b>1RK Studio</b> — ₹14,000/mo\n🛏️ <b>Co-Living Single</b> — ₹13,000/mo\n👥 <b>Double Sharing</b> — ₹9,000/mo\n\nWould you like to book a visit?`,
     'what is the starting price?': `Our rooms start from just <b>₹9,000/month</b> for double sharing.\n\n💡 All prices include housekeeping, Wi-Fi & security. No hidden charges!`,
     'what amenities do you offer?': `We offer <b>20+ premium amenities</b> including:\n📶 High-Speed Wi-Fi\n❄️ AC Rooms\n🍽️ Tasty Meals\n🧹 Daily Housekeeping\n📷 CCTV Security\n🛗 Lift & Parking\n🔋 Power Backup\n🎮 Indoor Games\n...and much more!`,
-    'where are you located?': `📍 We are located in:\n• <b>Sector 21</b>, Gurugram\n• <b>Sector 23</b>, Gurugram\n• <b>Sector 23A</b>, Gurugram\n• South <b>Delhi</b>\n• <b>Noida</b> Sector 62\n• <b>Faridabad</b>`,
+    'food menu': `🍽️ <b>Our Daily Food Menu</b> 🍽️\n\n<b>Breakfast (8:00 - 10:00 AM):</b>\n🥛 Milk/Cornflakes\n🍞 Bread Butter/Jam\n🌯 Aloo Paratha + Curd\n☕ Tea/Coffee\n\n<b>Lunch (1:00 - 3:00 PM):</b>\n🍚 Steam Rice\n🍛 Dal Tadka\n🥘 Seasonal Vegetable\n🍞 Roti\n🥗 Salad + Pickle\n<b>Dinner (8:00 - 10:00 PM):</b>\n🍚 Jeera Rice\n🍛 Paneer/Chicken Curry (alternate days)\n🍞 Roti/Naan\n🥗 Salad\n🍨 Dessert (on Sundays)\n\n<b>Special Weekly Items:</b>\n• Monday: Chole Bhature\n• Wednesday: Pav Bhaji\n• Friday: Biryani\n• Sunday: Special Thali + Dessert\n\n🍽️ <i>All meals are home-style, hygienic, and made fresh daily!</i>`,
+    'where are you located?': `📍 We have properties across <b>7 prime locations</b>:\n\n• <b>Sector 21C</b>, Dhundahera, Gurugram\n• <b>Sector 22</b>, Gurugram\n• <b>Sector 22A</b>, Gurugram\n• <b>Sector 22B</b>, Gurugram\n• <b>Mullahera</b>, Gurugram\n• <b>Sector 23A</b>, Gurugram\n\n📞 Call us to check availability in your preferred area!`,
     'i want to book a visit': `Great! 🎉 You can book a free visit by calling us:\n📞 <b>+91 96506 03063</b>\n📞 <b>+91 82228 87210</b>\n\nOr use the <b>Contact Us</b> form on our website. We'll confirm your slot within 1 hour!`,
-    'how do i contact you?': `You can reach us through:\n📞 <b>+91 96506 03063</b>\n📧 <b>contact@shivrajhomes.in</b>\n💬 WhatsApp button on the left\n\nWe're available <b>Mon–Sat, 9AM–8PM</b>.`,
+    'how do i contact you?': `You can reach us through:\n📞 <b>+91 9217234443</b>\n📧 <b>contact@shivrajhomes.in</b>\n💬 WhatsApp button on the left\n\nWe're available <b>Mon–Sat, 9AM–8PM</b>.`,
   };
 
-  const defaultResponse = `Thanks for your message! 😊 Our team will get back to you shortly.\n\nFor immediate help, call us at <b>+91 96506 03063</b> or click the WhatsApp button.`;
+  const defaultResponse = `Thanks for your message! 😊 Our team will get back to you shortly.\n\nFor immediate help, call us at <b>+91 92172 34443</b> or click the WhatsApp button.`;
 
   // ---- Toggle open/close ----
   function openChat() {
@@ -942,5 +1085,6 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
 });
-window.open('https://www.linkedin.com/in/mishraaayushi_/'); // ← replace with Aayushi's real URL
-window.open('https://www.linkedin.com/in/aniwesh-tiwari'); // ← replace with Aniwesh's real URL
+
+window.open('https://www.linkedin.com/in/mishraaayushi/'); 
+window.open('https://www.linkedin.com/in/aniwesh-tiwari/');
