@@ -1,6 +1,311 @@
-// Hamburger toggle
-const hamburger = document.getElementById('hamburger');
-const navMenu   = document.getElementById('navMenu');
+// ===========================
+// MOBILE-FRIENDLY JAVASCRIPT
+// ===========================
+
+document.addEventListener('DOMContentLoaded', function() {
+  
+  // Hamburger toggle
+  const hamburger = document.getElementById('hamburger');
+  const navMenu = document.getElementById('navMenu');
+  
+  if (hamburger && navMenu) {
+    hamburger.addEventListener('click', function() {
+      this.classList.toggle('active');
+      navMenu.classList.toggle('open');
+    });
+    
+    hamburger.addEventListener('touchstart', function() {
+      this.classList.toggle('active');
+      navMenu.classList.toggle('open');
+    });
+  }
+  
+  // =============================================
+  // DROPDOWN TOGGLE (MOBILE FRIENDLY)
+  // =============================================
+  
+  const dropdownToggles = document.querySelectorAll('.navbar__dropdown-toggle');
+  const dropdowns = document.querySelectorAll('.navbar__dropdown');
+  
+  dropdownToggles.forEach(toggle => {
+    const newToggle = toggle.cloneNode(true);
+    toggle.parentNode.replaceChild(newToggle, toggle);
+    
+    newToggle.addEventListener('click', function(e) {
+      e.preventDefault();
+      e.stopPropagation();
+      
+      const parentDropdown = this.closest('.navbar__dropdown');
+      const isOpen = parentDropdown.classList.contains('open');
+      
+      dropdowns.forEach(d => {
+        d.classList.remove('open');
+        const btn = d.querySelector('.navbar__dropdown-toggle');
+        if (btn) btn.setAttribute('aria-expanded', 'false');
+      });
+      
+      if (!isOpen) {
+        parentDropdown.classList.add('open');
+        this.setAttribute('aria-expanded', 'true');
+      }
+    });
+    
+    newToggle.addEventListener('touchstart', function(e) {
+      e.preventDefault();
+      e.stopPropagation();
+      
+      const parentDropdown = this.closest('.navbar__dropdown');
+      const isOpen = parentDropdown.classList.contains('open');
+      
+      dropdowns.forEach(d => {
+        d.classList.remove('open');
+        const btn = d.querySelector('.navbar__dropdown-toggle');
+        if (btn) btn.setAttribute('aria-expanded', 'false');
+      });
+      
+      if (!isOpen) {
+        parentDropdown.classList.add('open');
+        this.setAttribute('aria-expanded', 'true');
+      }
+    });
+  });
+  
+  document.addEventListener('click', function(e) {
+    if (!e.target.closest('.navbar__dropdown')) {
+      dropdowns.forEach(d => d.classList.remove('open'));
+    }
+  });
+  
+  document.addEventListener('touchstart', function(e) {
+    if (!e.target.closest('.navbar__dropdown')) {
+      dropdowns.forEach(d => d.classList.remove('open'));
+    }
+  });
+  
+  // =============================================
+  // PROPERTY DATA
+  // =============================================
+  
+  const sectorPropertiesData = {
+    sector21: {
+      name: 'Shivraj Homes – Sector 21',
+      badge: 'Sector 21, Gurugram',
+      address: 'House No. 337DP, Pocket E, Sector 21, Gurugram',
+      popupAddr: 'Sector 21, Gurugram, Haryana 122016',
+      price: '₹9,000',
+      mapSrc: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3506.2!2d77.0266!3d28.5021!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjjCsDMwJzA3LjYiTiA3N8KwMDEnMzUuOCJF!5e0!3m2!1sen!2sin!4v1234567890',
+      properties: [
+        { name: 'Shivraj Homes - 21C', location: 'Sector 21C, Gurugram', price: '₹9,000', badge: 'Most Popular', image: '1774162250089.png', amenities: ['Wi-Fi', 'AC', 'Meals', 'Parking'], phone: '+91 96506 03063' },
+        { name: 'Shivraj Homes - Dhundahera', location: 'Dhundahera, Gurugram', price: '₹8,500', badge: 'Budget Friendly', image: '1774162263990.png', amenities: ['Wi-Fi', 'CCTV', 'Parking'], phone: '+91 96506 03063' }
+      ]
+    },
+    sector22: {
+      name: 'Shivraj Homes – Sector 22',
+      badge: 'Sector 22, Gurugram',
+      address: 'Sector 22, Near Palam Vihar, Gurugram',
+      popupAddr: 'Sector 22, Gurugram, Haryana 122015',
+      price: '₹9,500',
+      mapSrc: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3506.5!2d77.0290!3d28.5050!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjjCsDMwJzE4LjAiTiA3N8KwMDEnNDQuMCJF!5e0!3m2!1sen!2sin!4v1234567890',
+      properties: [
+        { name: 'Shivraj Homes - 22A', location: 'Sector 22A, Gurugram', price: '₹9,500', badge: 'Premium', image: '1774162307006.png', amenities: ['Wi-Fi', 'AC', 'Meals', 'Lift'], phone: '+91 96506 03063' },
+        { name: 'Shivraj Homes - 22B', location: 'Sector 22B, Gurugram', price: '₹9,000', badge: 'Best Value', image: '1774162320908.png', amenities: ['Wi-Fi', 'CCTV', 'Meals'], phone: '+91 96506 03063' },
+        { name: 'Shivraj Homes - Mullahera', location: 'Mullahera, Gurugram', price: '₹8,000', badge: 'Budget', image: '181627717.jpg', amenities: ['Wi-Fi', 'Parking', 'Power Backup'], phone: '+91 96506 03063' }
+      ]
+    },
+    sector23: {
+      name: 'Shivraj Homes – Sector 23',
+      badge: 'Sector 23, Gurugram',
+      address: 'Sector 23A, Gurugram',
+      popupAddr: 'Sector 23, Gurugram, Haryana 122017',
+      price: '₹10,000',
+      mapSrc: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3507.0!2d77.0320!3d28.5100!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjjCsDMwJzM2LjAiTiA3N8KwMDEnNTUuMCJF!5e0!3m2!1sen!2sin!4v1234567890',
+      properties: [
+        { name: 'Shivraj Homes - 23A', location: 'Sector 23A, Gurugram', price: '₹10,000', badge: 'New Launch', image: '1.jpg', amenities: ['Wi-Fi', 'AC', 'Meals', 'Lift'], phone: '+91 96506 03063' }
+      ]
+    }
+  };
+  
+  // =============================================
+  // OPEN LOCATION POPUP
+  // =============================================
+  
+  window.openLocationPopup = function(key) {
+    const data = sectorPropertiesData[key];
+    if (!data) return;
+    
+    const overlay = document.getElementById('locOverlay');
+    if (!overlay) return;
+    
+    const locName = document.getElementById('locName');
+    const locAddress = document.getElementById('locAddress');
+    const locBadge = document.getElementById('locBadge');
+    const locPrice = document.getElementById('locPrice');
+    const locPopupAddr = document.getElementById('locPopupAddr');
+    const locMap = document.getElementById('locMap');
+    
+    if (locName) locName.textContent = data.name;
+    if (locAddress) locAddress.textContent = data.address;
+    if (locBadge) locBadge.textContent = data.badge;
+    if (locPrice) locPrice.innerHTML = data.price + '<small>/mo</small>';
+    if (locPopupAddr) locPopupAddr.textContent = data.popupAddr;
+    if (locMap) locMap.src = data.mapSrc;
+    
+    const cardsContainer = document.getElementById('locPropertyCards');
+    const cardsSection = document.getElementById('propertyCardsSection');
+    
+    if (cardsContainer && data.properties && data.properties.length > 0) {
+      if (cardsSection) cardsSection.style.display = 'block';
+      
+      cardsContainer.innerHTML = data.properties.map(prop => `
+        <div class="loc-property-card">
+          <div class="loc-property-card__image" style="background-image: url('${prop.image}')">
+            <span class="loc-property-card__badge">${prop.badge}</span>
+          </div>
+          <div class="loc-property-card__content">
+            <h4 class="loc-property-card__name">${prop.name}</h4>
+            <div class="loc-property-card__price">${prop.price}<small>/mo</small></div>
+            <div class="loc-property-card__amenities">
+              ${prop.amenities.map(a => `<span class="loc-property-card__amenity">${a}</span>`).join('')}
+            </div>
+            <button class="loc-property-card__btn" onclick="showPropertyContact('${prop.name}', '${prop.phone}')">View Details →</button>
+          </div>
+        </div>
+      `).join('');
+    } else if (cardsSection) {
+      cardsSection.style.display = 'none';
+    }
+    
+    overlay.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  };
+  
+  window.closeLocationPopup = function() {
+    const overlay = document.getElementById('locOverlay');
+    if (overlay) {
+      overlay.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+  };
+  
+  window.showPropertyContact = function(name, phone) {
+    const existing = document.querySelector('.property-contact-popup');
+    if (existing) existing.remove();
+    
+    const popup = document.createElement('div');
+    popup.className = 'property-contact-popup';
+    popup.style.cssText = 'position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.85);z-index:100000;display:flex;align-items:center;justify-content:center;';
+    popup.innerHTML = `
+      <div style="background:#fff;border-radius:24px;padding:28px 24px;max-width:320px;width:85%;text-align:center;position:relative;">
+        <button onclick="this.closest('.property-contact-popup').remove()" style="position:absolute;top:12px;right:16px;background:none;border:none;font-size:22px;cursor:pointer;">✕</button>
+        <div style="font-size:48px;margin-bottom:10px;">🏢</div>
+        <h3 style="color:#1E2D5E;margin:10px 0;font-family:Poppins;font-size:1.2rem;">${name}</h3>
+        <a href="tel:${phone}" style="display:block;background:#C4622D;color:#fff;padding:12px;border-radius:50px;margin:12px 0;text-decoration:none;font-weight:600;">📞 Call ${phone}</a>
+        <a href="https://wa.me/${phone.replace(/[^0-9]/g, '')}" target="_blank" style="display:block;background:#25D366;color:#fff;padding:12px;border-radius:50px;margin:12px 0;text-decoration:none;font-weight:600;">💬 WhatsApp</a>
+        <button onclick="closeLocationPopup(); this.closest('.property-contact-popup').remove(); document.getElementById('contact').scrollIntoView({behavior:'smooth'})" style="background:#1E2D5E;color:#fff;padding:12px;border-radius:50px;border:none;width:100%;font-weight:600;cursor:pointer;">📝 Enquire Now</button>
+      </div>
+    `;
+    document.body.appendChild(popup);
+  };
+  
+  // =============================================
+  // ATTACH DROPDOWN ITEM EVENTS
+  // =============================================
+  
+  const attachEvents = function() {
+    const items = document.querySelectorAll('.navbar__dropdown-item');
+    items.forEach(item => {
+      const newItem = item.cloneNode(true);
+      item.parentNode.replaceChild(newItem, item);
+      
+      newItem.addEventListener('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        const text = this.textContent.trim().toLowerCase();
+        let key = 'sector21';
+        if (text.includes('sector 21')) key = 'sector21';
+        if (text.includes('sector 22')) key = 'sector22';
+        if (text.includes('sector 23')) key = 'sector23';
+        window.openLocationPopup(key);
+        document.querySelectorAll('.navbar__dropdown').forEach(d => d.classList.remove('open'));
+      });
+      
+      newItem.addEventListener('touchstart', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        const text = this.textContent.trim().toLowerCase();
+        let key = 'sector21';
+        if (text.includes('sector 21')) key = 'sector21';
+        if (text.includes('sector 22')) key = 'sector22';
+        if (text.includes('sector 23')) key = 'sector23';
+        window.openLocationPopup(key);
+        document.querySelectorAll('.navbar__dropdown').forEach(d => d.classList.remove('open'));
+      });
+    });
+  };
+  
+  attachEvents();
+  
+  // =============================================
+  // CLOSE BUTTONS
+  // =============================================
+  
+  const closeBtn = document.getElementById('locClose');
+  if (closeBtn) {
+    closeBtn.addEventListener('click', window.closeLocationPopup);
+    closeBtn.addEventListener('touchstart', window.closeLocationPopup);
+  }
+  
+  const overlayBg = document.getElementById('locOverlay');
+  if (overlayBg) {
+    overlayBg.addEventListener('click', function(e) {
+      if (e.target === this) window.closeLocationPopup();
+    });
+  }
+  
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') window.closeLocationPopup();
+  });
+  
+  // =============================================
+  // WHATSAPP BUTTON FIX
+  // =============================================
+  
+  const waBtn = document.querySelector('.float-wa');
+  if (waBtn) {
+    waBtn.addEventListener('touchstart', function() {
+      setTimeout(() => window.open(this.href, '_blank'), 100);
+    });
+  }
+  
+  // =============================================
+  // REVIEW BUTTON FIX
+  // =============================================
+  
+  const reviewBtnEl = document.querySelector('.reviews__add-btn');
+  if (reviewBtnEl) {
+    reviewBtnEl.addEventListener('touchstart', function() {
+      setTimeout(() => window.open(this.href, '_blank'), 100);
+    });
+  }
+  
+  // Hero Slideshow
+  const slides = document.querySelectorAll('.hero__slide');
+  let currentSlide = 0;
+  
+  function nextSlide() {
+    const prev = currentSlide;
+    currentSlide = (currentSlide + 1) % slides.length;
+    slides[prev].classList.remove('active');
+    slides[prev].classList.add('exit');
+    slides[currentSlide].classList.add('active');
+    setTimeout(() => slides[prev].classList.remove('exit'), 800);
+  }
+  
+  if (slides.length > 0) setInterval(nextSlide, 4000);
+  
+  console.log('Mobile fixes loaded successfully!');
+  
+});
 
 hamburger.addEventListener('click', () => {
   hamburger.classList.toggle('active');
@@ -613,7 +918,21 @@ window.showPropertyContact = function(propertyName, phone) {
     overlay.classList.remove('open');
     document.body.style.overflow = '';
   }
-
+// Fix for Write a Review button
+const reviewBtn = document.getElementById('writeReviewBtn');
+if (reviewBtn) {
+  reviewBtn.addEventListener('click', function(e) {
+    // Ensure it works on mobile
+    return true;
+  });
+  
+  // Alternative: If the above doesn't work, use this
+  reviewBtn.addEventListener('touchstart', function(e) {
+    setTimeout(() => {
+      window.open(this.href, '_blank');
+    }, 100);
+  });
+}
   closeBtn.addEventListener('click', closePopup);
   overlay.addEventListener('click', e => { if (e.target === overlay) closePopup(); });
   document.addEventListener('keydown', e => { if (e.key === 'Escape') closePopup(); });
