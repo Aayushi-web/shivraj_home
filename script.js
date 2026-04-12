@@ -619,19 +619,33 @@ window.showPropertyContact = function(propertyName, phone) {
   document.addEventListener('keydown', e => { if (e.key === 'Escape') closePopup(); });
 
  // Hook navbar dropdown items
-  document.querySelectorAll('.navbar__dropdown-item').forEach(item => {
-    item.addEventListener('click', e => {
+  const dropdownItems = document.querySelectorAll('.navbar__dropdown-item');
+  console.log('Dropdown items found:', dropdownItems.length);
+  
+  dropdownItems.forEach(item => {
+    item.addEventListener('click', function(e) {
       e.preventDefault();
-      const text = item.textContent.trim().toLowerCase();
+      e.stopPropagation();
+      
+      const text = this.textContent.trim().toLowerCase();
+      console.log('Clicked on:', text);
+      
       let key = 'sector21';
       if (text.includes('sector 21')) key = 'sector21';
       if (text.includes('sector 22')) key = 'sector22';
       if (text.includes('sector 23')) key = 'sector23';
+      
+      console.log('Opening popup for:', key);
       openPopup(key);
-      document.querySelectorAll('.navbar__dropdown').forEach(d => d.classList.remove('open'));
+      
+      // Close dropdown
+      document.querySelectorAll('.navbar__dropdown').forEach(d => {
+        d.classList.remove('open');
+        const toggle = d.querySelector('.navbar__dropdown-toggle');
+        if (toggle) toggle.setAttribute('aria-expanded', 'false');
+      });
     });
   });
-
   // Form submit
   if (form) {
     form.addEventListener('submit', e => {
@@ -1088,3 +1102,49 @@ document.addEventListener('DOMContentLoaded', () => {
 
 window.open('https://www.linkedin.com/in/mishraaayushi/'); 
 window.open('https://www.linkedin.com/in/aniwesh-tiwari/');
+function openPopup(key) {
+    console.log('openPopup called with key:', key);
+    const data = locationData[key] || locationData.sector21;
+    
+    if (!data) {
+      console.error('No data found for key:', key);
+      return;
+    }
+    
+    document.getElementById('locName').textContent = data.name;
+    document.getElementById('locAddress').textContent = data.address;
+    document.getElementById('locBadge').textContent = data.badge;
+    document.getElementById('locPrice').innerHTML = data.price + '<small>/mo</small>';
+    document.getElementById('locPopupAddr').textContent = data.popupAddr;
+    document.getElementById('locMap').src = data.mapSrc;
+    
+    // Show property cards
+    const propertyCardsSection = document.getElementById('propertyCardsSection');
+    const propertyCardsContainer = document.getElementById('locPropertyCards');
+    
+    if (data.properties && data.properties.length > 0) {
+      propertyCardsSection.style.display = 'block';
+      propertyCardsContainer.innerHTML = data.properties.map(prop => `
+        <div class="loc-property-card">
+          <div class="loc-property-card__image" style="background-image: url('${prop.image}')">
+            <span class="loc-property-card__badge">${prop.badge}</span>
+          </div>
+          <div class="loc-property-card__content">
+            <h4 class="loc-property-card__name">${prop.name}</h4>
+            <div class="loc-property-card__price">${prop.price}<small>/mo</small></div>
+            <button class="loc-property-card__btn" onclick="showPropertyContact('${prop.name}', '${prop.phone}')">
+              View Details →
+            </button>
+          </div>
+        </div>
+      `).join('');
+    } else {
+      propertyCardsSection.style.display = 'none';
+    }
+    
+    const overlay = document.getElementById('locOverlay');
+    if (overlay) {
+      overlay.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+  }
