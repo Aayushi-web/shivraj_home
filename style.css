@@ -80,7 +80,7 @@ body { font-family: 'Poppins', sans-serif; background: var(--off-white); color: 
 /* Mobile */
 @media (max-width: 768px) {
   .navbar__hamburger { display: flex; }
-  .navbar__nav { position: absolute; top: 72px; left: 0; right: 0; background: var(--white); border-top: 2px solid rgba(196, 98, 45, 0.2); box-shadow: var(--shadow-md); max-height: 0; overflow: hidden; transition: max-height 0.35s ease, padding 0.3s ease; }
+ .navbar__nav { position: absolute; top: 90px; left: 0; right: 0; background: var(--white); border-top: 2px solid rgba(196, 98, 45, 0.2); box-shadow: var(--shadow-md); max-height: 0; overflow: hidden; transition: max-height 0.35s ease, padding 0.3s ease; }
   .navbar__nav.open { max-height: 400px; padding: 12px 0 16px; }
   .navbar__list { flex-direction: column; align-items: flex-start; padding: 0 20px; gap: 2px; width: 100%; }
   .navbar__item { width: 100%; }
@@ -468,15 +468,22 @@ body { font-family: 'Poppins', sans-serif; background: var(--off-white); color: 
 
 /* Responsive */
 @media (max-width: 768px) {
-  .hero__content { padding: 80px 20px 140px; }
-
-  .hero__stats { flex-wrap: wrap; padding: 16px 12px; }
-  .hero__stat { padding: 8px 20px; width: 50%; }
+  .hero__content { padding: 100px 20px 200px; }
+  .hero__title { font-size: 2rem; }
+  .hero__subtitle { font-size: 0.88rem; }
+  .hero__actions { flex-direction: column; align-items: flex-start; gap: 10px; }
+  .hero__btn { width: 100%; justify-content: center; }
+  .hero__stats {
+    flex-wrap: wrap;
+    padding: 14px 10px;
+    gap: 6px;
+    position: relative;
+  }
+  .hero__stat { padding: 12px 10px; width: calc(50% - 6px); }
+  .hero__stat-number { font-size: 1.4rem; }
+  .hero__stat-label { font-size: 0.68rem; }
   .hero__stat-divider { display: none; }
   .hero__scroll { display: none; }
-
-  .hero__search-inner { flex-wrap: wrap; border-radius: 16px; padding: 12px 14px; }
-  .hero__search-btn { width: 100%; border-radius: 10px; }
 }
 /* ===========================
    ROOMS SECTION
@@ -765,8 +772,9 @@ body { font-family: 'Poppins', sans-serif; background: var(--off-white); color: 
 
 @media (max-width: 640px) {
   .rooms { padding: 60px 16px; }
-  .rooms__grid { grid-template-columns: 1fr; }
+  .rooms__grid { grid-template-columns: 1fr; gap: 16px; }
   .rooms__card--featured { grid-column: span 1; transform: none; }
+  .rooms__card { padding: 24px 20px; }
 }
 /* ===========================
    AMENITIES SECTION
@@ -946,8 +954,8 @@ body { font-family: 'Poppins', sans-serif; background: var(--off-white); color: 
 
 /* Responsive */
 @media (max-width: 1024px) { .amenities__grid { grid-template-columns: repeat(4, 1fr); } }
-@media (max-width: 768px)  { .amenities__grid { grid-template-columns: repeat(3, 1fr); } .amenities { padding: 60px 16px; } }
-@media (max-width: 480px)  { .amenities__grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 768px)  { .amenities__grid { grid-template-columns: repeat(2, 1fr); } .amenities { padding: 60px 16px; } }
+@media (max-width: 480px)  { .amenities__grid { grid-template-columns: repeat(2, 1fr); gap: 10px; } .amenities__card { padding: 18px 14px; } }
 /* ===========================
    WHY CHOOSE US SECTION
    =========================== */
@@ -1198,13 +1206,18 @@ body { font-family: 'Poppins', sans-serif; background: var(--off-white); color: 
   .why__row--bottom .why__card:last-child  { grid-column: auto; }
 }
 
+@media (max-width: 1024px) {
+  .why__row--top    { grid-template-columns: repeat(2, 1fr); }
+  .why__row--bottom { grid-template-columns: 1fr; max-width: 100%; }
+}
+
 @media (max-width: 640px) {
   .why { padding: 60px 16px; }
-  .why__row--top, .why__row--bottom { grid-template-columns: 1fr; }
-  .why__row--bottom .why__card:first-child,
-  .why__row--bottom .why__card:last-child { grid-column: auto; }
-  .why__card { padding: 30px 24px; min-height: auto; }
-  .why__card-stats { gap: 16px; }
+  .why__row--top    { grid-template-columns: 1fr; }
+  .why__row--bottom { grid-template-columns: 1fr; max-width: 100%; }
+  .why__card { padding: 28px 22px; min-height: auto; }
+  .why__card-stats { gap: 12px; flex-wrap: wrap; }
+  .why__card-number { font-size: 2.5rem; }
 }
 /* ===========================
    REVIEWS SECTION
@@ -1417,22 +1430,16 @@ body { font-family: 'Poppins', sans-serif; background: var(--off-white); color: 
 
 /* Responsive */
 @media (max-width: 1024px) {
-  .reviews__container { grid-template-columns: 1fr; gap: 48px; }
-  .reviews__card { min-width: 100%; }
+  .reviews__container { grid-template-columns: 1fr; gap: 0; }
+  .reviews__left { border-right: none; border-bottom: 2px solid rgba(30,45,94,0.12); padding: 28px 20px; }
+  .reviews__right { padding: 28px 20px; }
+  .reviews__card { min-width: 100%; max-height: none; }
 }
 
-@media (max-width: 1024px) {
-  .reviews__container {
-    grid-template-columns: 1fr;
-    gap: 0;
-  }
-  .reviews__left {
-    border-right: none;
-    border-bottom: 2px solid rgba(30, 45, 94, 0.12);
-    padding: 36px 28px;
-  }
-  .reviews__right { padding: 36px 28px; }
-  .reviews__card { min-width: 100%; }
+@media (max-width: 640px) {
+  .reviews { padding: 60px 16px; }
+  .reviews__title { font-size: 1.6rem; }
+  .reviews__rating-number { font-size: 3.5rem; }
 }
 
 @media (max-width: 640px) {
@@ -1653,10 +1660,18 @@ body { font-family: 'Poppins', sans-serif; background: var(--off-white); color: 
   .contact__success { border-radius: 0 0 24px 24px; }
 }
 
+@media (max-width: 1024px) {
+  .contact__body { grid-template-columns: 1fr; }
+  .contact__info { padding: 28px 20px; }
+  .contact__form-wrap { padding: 28px 20px; }
+  .contact__success { border-radius: 0 0 24px 24px; }
+}
+
 @media (max-width: 640px) {
   .contact { padding: 60px 16px; }
   .contact__form-row { grid-template-columns: 1fr; }
-  .contact__form-wrap { padding: 28px 20px; }
+  .contact__form-wrap { padding: 22px 16px; }
+  .contact__info { padding: 22px 16px; }
 }
 /* ===========================
    LOCATION POPUP
@@ -2206,15 +2221,19 @@ body { font-family: 'Poppins', sans-serif; background: var(--off-white); color: 
 
 /* Responsive */
 @media (max-width: 900px) {
-  .loc-body { grid-template-columns: 1fr; }
+  .loc-body { grid-template-columns: 1fr; max-height: none; }
+  .loc-modal { max-height: 95vh; border-radius: 16px; }
   .loc-right { border-left: none; border-top: 2px solid rgba(30,45,94,0.08); }
 }
 
 @media (max-width: 540px) {
-  .loc-left { padding: 20px 16px; }
-  .loc-enquiry { padding: 20px 16px; }
+  .loc-overlay { padding: 10px; }
+  .loc-modal { max-height: 96vh; border-radius: 14px; }
+  .loc-left { padding: 16px 14px; }
+  .loc-enquiry { padding: 16px 14px; }
   .loc-overview__grid { grid-template-columns: repeat(2, 1fr); }
-  .loc-gallery__main { height: 200px; }
+  .loc-gallery__main { height: 180px; }
+  .loc-gallery__thumbs img { width: 60px; height: 44px; }
 }
 /* ===========================
    FOOTER
@@ -2404,12 +2423,14 @@ body { font-family: 'Poppins', sans-serif; background: var(--off-white); color: 
   .footer__top { grid-template-columns: 1fr 1fr; gap: 24px; }
   .footer__brand { grid-column: span 2; }
   .footer__bottom { flex-direction: column; align-items: center; text-align: center; gap: 12px; }
+  .footer__credits { flex-wrap: wrap; justify-content: center; }
 }
 
 @media (max-width: 480px) {
-  .footer__top { grid-template-columns: 1fr; }
+  .footer__top { grid-template-columns: 1fr; gap: 20px; }
   .footer__brand { grid-column: span 1; }
-  .footer__container { padding: 40px 16px 0; }
+  .footer__container { padding: 36px 16px 0; }
+  .footer__logo { height: 52px; }
 }
 /* ===========================
    QUICK POPUP — Shared styles
@@ -3007,9 +3028,32 @@ body { font-family: 'Poppins', sans-serif; background: var(--off-white); color: 
 
 /* Responsive */
 @media (max-width: 480px) {
-  .chatbot__window { width: calc(100vw - 32px); }
-  .float-wa { left: 16px; bottom: 24px; }
-  .chatbot  { right: 16px; bottom: 24px; }
+  .chatbot__window {
+    width: calc(100vw - 24px);
+    max-height: 75vh;
+  }
+  .float-wa {
+    left: 12px;
+    bottom: 20px;
+    width: 50px;
+    height: 50px;
+  }
+  .chatbot {
+    right: 12px;
+    bottom: 20px;
+  }
+  .chatbot__toggle {
+    width: 50px;
+    height: 50px;
+  }
+  .chatbot__menu-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 5px;
+  }
+  .chatbot__quick-btn {
+    font-size: 0.65rem;
+    padding: 6px 8px;
+  }
 }
 
 /* ===========================
@@ -3038,41 +3082,6 @@ body { font-family: 'Poppins', sans-serif; background: var(--off-white); color: 
   -webkit-tap-highlight-color: transparent;
 }
 
-/* Fix for mobile dropdown */
-@media (max-width: 768px) {
-  .navbar__dropdown-toggle {
-    position: relative;
-    z-index: 1001;
-  }
-  
-  .navbar__dropdown-menu {
-    position: relative;
-    z-index: 1000;
-  }
-  
-  .navbar__dropdown-item {
-    display: block;
-    padding: 12px 16px;
-    pointer-events: auto;
-  }
-  
-  /* Fix for WhatsApp on mobile */
-  .float-wa {
-    z-index: 9999;
-    pointer-events: auto;
-  }
-  
-  .chatbot {
-    z-index: 9999;
-    pointer-events: auto;
-  }
-  
-  /* Fix for review button */
-  .reviews__add-btn {
-    display: inline-flex;
-    pointer-events: auto;
-  }
-}
 
 /* ===========================
    LEAD POPUP
